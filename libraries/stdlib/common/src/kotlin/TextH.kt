@@ -306,8 +306,7 @@ public expect val String.Companion.CASE_INSENSITIVE_ORDER: Comparator<String>
 /**
  * Returns `true` if the content of this string is equal to the word "true", ignoring case, and `false` otherwise.
  */
-@Deprecated("Use String?.toBoolean() instead.", ReplaceWith(""))
-@DeprecatedSinceKotlin(hiddenSince = "1.4")
+@LowPriorityInOverloadResolution
 @kotlin.internal.InlineOnly
 public inline fun String.toBoolean(): Boolean = this.toBoolean()
 
