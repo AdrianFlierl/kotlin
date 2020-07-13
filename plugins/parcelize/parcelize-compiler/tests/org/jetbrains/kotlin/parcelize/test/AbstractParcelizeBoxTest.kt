@@ -41,7 +41,8 @@ abstract class AbstractParcelizeBoxTest : CodegenTestCase() {
         private fun getLayoutLibFile(pattern: String): File {
             val nameRegex = "^$pattern-[0-9\\.]+\\.jar$".toRegex()
             return File(androidPluginPath).listFiles().orEmpty().singleOrNull { it.name.matches(nameRegex) }
-                ?: error("Can't find file for pattern $nameRegex in $androidPluginPath")
+                ?: error("Can't find file for pattern $nameRegex in $androidPluginPath. " +
+                                 "Available files: \n${File(androidPluginPath).list().orEmpty().asList()}")
         }
 
         val layoutlibJar: File by lazy { getLayoutLibFile("layoutlib(-jre[0-9]+)?") }
