@@ -957,49 +957,49 @@ class ArraysTest {
         }
 
         doTest(
-            Array<String>::copyInto, { e, a, msg -> assertArrayNotSameButEquals(e, a, msg) }, Array<*>?::contentToString,
+            Array<String>::copyInto, { e, a, msg -> assertArrayNotSameButEquals(e, a, msg) }, Array<*>::contentToString,
             arrayOf("a", "b", "c"), arrayOf("e", "f", "g"),
             arrayOf("f", "g", "c"), arrayOf("g", "c", "c"), arrayOf("g", "g", "c")
         )
 
         doTest(
-            IntArray::copyInto, ::assertArrayNotSameButEquals, IntArray?::contentToString,
+            IntArray::copyInto, ::assertArrayNotSameButEquals, IntArray::contentToString,
             intArrayOf(1, 2, 3), intArrayOf(4, 5, 6),
             intArrayOf(5, 6, 3), intArrayOf(6, 3, 3), intArrayOf(6, 6, 3)
         )
 
         doTest(
-            LongArray::copyInto, ::assertArrayNotSameButEquals, LongArray?::contentToString,
+            LongArray::copyInto, ::assertArrayNotSameButEquals, LongArray::contentToString,
             longArrayOf(1, 2, 3), longArrayOf(4, 5, 6),
             longArrayOf(5, 6, 3), longArrayOf(6, 3, 3), longArrayOf(6, 6, 3)
         )
 
         doTest(
-            ByteArray::copyInto, ::assertArrayNotSameButEquals, ByteArray?::contentToString,
+            ByteArray::copyInto, ::assertArrayNotSameButEquals, ByteArray::contentToString,
             byteArrayOf(1, 2, 3), byteArrayOf(4, 5, 6),
             byteArrayOf(5, 6, 3), byteArrayOf(6, 3, 3), byteArrayOf(6, 6, 3)
         )
 
         doTest(
-            CharArray::copyInto, ::assertArrayNotSameButEquals, CharArray?::contentToString,
+            CharArray::copyInto, ::assertArrayNotSameButEquals, CharArray::contentToString,
             charArrayOf('a', 'b', 'c'), charArrayOf('e', 'f', 'g'),
             charArrayOf('f', 'g', 'c'), charArrayOf('g', 'c', 'c'), charArrayOf('g', 'g', 'c')
         )
 
         doTest(
-            UIntArray::copyInto, { e, a, msg -> assertTrue(e contentEquals a, msg) }, UIntArray?::contentToString,
+            UIntArray::copyInto, { e, a, msg -> assertTrue(e contentEquals a, msg) }, UIntArray::contentToString,
             uintArrayOf(1, 2, 3), uintArrayOf(4, 5, 6),
             uintArrayOf(5, 6, 3), uintArrayOf(6, 3, 3), uintArrayOf(6, 6, 3)
         )
 
         doTest(
-            ULongArray::copyInto, { e, a, msg -> assertTrue(e contentEquals a, msg) }, ULongArray?::contentToString,
+            ULongArray::copyInto, { e, a, msg -> assertTrue(e contentEquals a, msg) }, ULongArray::contentToString,
             ulongArrayOf(1, 2, 3), ulongArrayOf(4, 5, 6),
             ulongArrayOf(5, 6, 3), ulongArrayOf(6, 3, 3), ulongArrayOf(6, 6, 3)
         )
 
         doTest(
-            UByteArray::copyInto, { e, a, msg -> assertTrue(e contentEquals a, msg) }, UByteArray?::contentToString,
+            UByteArray::copyInto, { e, a, msg -> assertTrue(e contentEquals a, msg) }, UByteArray::contentToString,
             ubyteArrayOf(1, 2, 3), ubyteArrayOf(4, 5, 6),
             ubyteArrayOf(5, 6, 3), ubyteArrayOf(6, 3, 3), ubyteArrayOf(6, 6, 3)
         )
@@ -2276,14 +2276,14 @@ class ArraysTest {
             OperationOnRange(3, 2, 5, intArrayOf(0, 1, 3, 3, 3))
         )
 
-        test(array, BooleanArray::fill, operations, IntArray::toBooleanArray, { this % 2 == 0 }, BooleanArray?::contentEquals)
-        test(array, ByteArray::fill, operations, IntArray::toByteArray, Int::toByte, ByteArray?::contentEquals)
-        test(array, CharArray::fill, operations, IntArray::toCharArray, Int::toChar, CharArray?::contentEquals)
-        test(array, FloatArray::fill, operations, IntArray::toFloatArray, Int::toFloat, FloatArray?::contentEquals)
-        test(array, DoubleArray::fill, operations, IntArray::toDoubleArray, Int::toDouble, DoubleArray?::contentEquals)
-        test(array, ShortArray::fill, operations, IntArray::toShortArray, Int::toShort, ShortArray?::contentEquals)
-        test(array, IntArray::fill, operations, IntArray::copyOf, { this }, IntArray?::contentEquals)
-        test(array, LongArray::fill, operations, IntArray::toLongArray, Int::toLong, LongArray?::contentEquals)
+        test(array, BooleanArray::fill, operations, IntArray::toBooleanArray, { this % 2 == 0 }, BooleanArray::contentEquals)
+        test(array, ByteArray::fill, operations, IntArray::toByteArray, Int::toByte, ByteArray::contentEquals)
+        test(array, CharArray::fill, operations, IntArray::toCharArray, Int::toChar, CharArray::contentEquals)
+        test(array, FloatArray::fill, operations, IntArray::toFloatArray, Int::toFloat, FloatArray::contentEquals)
+        test(array, DoubleArray::fill, operations, IntArray::toDoubleArray, Int::toDouble, DoubleArray::contentEquals)
+        test(array, ShortArray::fill, operations, IntArray::toShortArray, Int::toShort, ShortArray::contentEquals)
+        test(array, IntArray::fill, operations, IntArray::copyOf, { this }, IntArray::contentEquals)
+        test(array, LongArray::fill, operations, IntArray::toLongArray, Int::toLong, LongArray::contentEquals)
         test(array, Array<String>::fill, operations, IntArray::toStringArray, Int::toString, { contentEquals(it) })
     }
 

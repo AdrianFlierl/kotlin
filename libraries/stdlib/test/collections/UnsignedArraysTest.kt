@@ -1308,10 +1308,10 @@ class UnsignedArraysTest {
             OperationOnRange(3u, 2, 5, uintArrayOf(0u, 1u, 3u, 3u, 3u))
         )
 
-        test(array, UByteArray::fill, operations, UIntArray::toUByteArray, UInt::toUByte, UByteArray?::contentEquals)
-        test(array, UShortArray::fill, operations, UIntArray::toUShortArray, UInt::toUShort, UShortArray?::contentEquals)
-        test(array, UIntArray::fill, operations, UIntArray::copyOf, UInt::toUInt, UIntArray?::contentEquals)
-        test(array, ULongArray::fill, operations, UIntArray::toULongArray, UInt::toULong, ULongArray?::contentEquals)
+        test(array, UByteArray::fill, operations, UIntArray::toUByteArray, UInt::toUByte, UByteArray::contentEquals)
+        test(array, UShortArray::fill, operations, UIntArray::toUShortArray, UInt::toUShort, UShortArray::contentEquals)
+        test(array, UIntArray::fill, operations, UIntArray::copyOf, UInt::toUInt, UIntArray::contentEquals)
+        test(array, ULongArray::fill, operations, UIntArray::toULongArray, UInt::toULong, ULongArray::contentEquals)
     }
 
     private class OperationOnRange<E, R>(
